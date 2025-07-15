@@ -84,8 +84,18 @@ const semestres = {
 
 let aprobados = JSON.parse(localStorage.getItem("aprobados")) || [];
 
+function lanzarConfetti() {
+  confetti({
+    particleCount: 150,
+    spread: 80,
+    origin: { y: 0.6 }
+  });
+}
+
 function renderMalla() {
   const contenedor = document.getElementById("contenedor-malla");
+  const mensajeFinal = document.getElementById("mensaje-final");
+  const tadaSound = document.getElementById("tada-sound");
   contenedor.innerHTML = "";
 
   for (const semestre in semestres) {
@@ -127,11 +137,20 @@ function renderMalla() {
       if (desbloqueado || aprobado) {
         div.onclick = () => {
           const index = aprobados.indexOf(id);
-          if (index === -1) {
-            aprobados.push(id);
-          } else {
+          const antesEstabaAprobado = index !== -1;
+
+          if (antesEstabaAprobado) {
             aprobados.splice(index, 1);
+          } else {
+            aprobados.push(id);
+
+            if (id === 67) {
+              mensajeFinal.classList.add("mostrar");
+              tadaSound.play();
+              lanzarConfetti();
+            }
           }
+
           localStorage.setItem("aprobados", JSON.stringify(aprobados));
           renderMalla();
         };
@@ -141,6 +160,11 @@ function renderMalla() {
     });
 
     contenedor.appendChild(columna);
+  }
+
+  // Ocultar mensaje si se desmarca el ramo 67
+  if (!aprobados.includes(67)) {
+    mensajeFinal.classList.remove("mostrar");
   }
 }
 
