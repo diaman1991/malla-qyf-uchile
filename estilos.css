@@ -1,0 +1,72 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #003366;
+}
+
+#contenedor-malla {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px;
+}
+
+.semestre {
+  background-color: #e6f0ff;
+  border-radius: 15px;
+  padding: 15px;
+  min-width: 250px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.semestre h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.creditos {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #006699;
+}
+
+.semestre div {
+  margin: 6px 0;
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+/* Estados */
+.bloqueado {
+  background-color: #d9e6f2;
+  border: 2px dashed #a0aabf;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.desbloqueado {
+  background-color: #cce5ff;
+  border: 2px solid #3399ff;
+  color: #003366;
+}
+
+.aprobado {
+  background-color: #a3d9a5;
+  border: 2px solid #339966;
+  color: #1a472a;
+  text-decoration: line-through;
+}
