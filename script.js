@@ -4,7 +4,7 @@ const malla = {
   3: { nombre: "Mecánica", sct: 4, requisitos: [] },
   4: { nombre: "Introducción al Cálculo", sct: 5, requisitos: [] },
   5: { nombre: "El Químico Farmacéutico y su Acción", sct: 5, requisitos: [] },
-  6: { nombre: "Cursos de Formación General", sct: 0, requisitos: [] },
+  6: { nombre: "Cursos de Formación General", sct: 4, requisitos: [] },
   7: { nombre: "Inglés I", sct: 3, requisitos: [] },
   8: { nombre: "Química General II", sct: 5, requisitos: [1] },
   9: { nombre: "Laboratorio de Química General", sct: 4, requisitos: [1, 2] },
